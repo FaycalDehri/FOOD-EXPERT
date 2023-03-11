@@ -1,0 +1,47 @@
+{
+  "rules": [
+    {
+      "ruleId": "R1",
+      "premisse": [
+        "A",
+        "B",
+        "C"
+      ],
+      "resultat": "F"
+    },
+    {
+      "ruleId": "R2",
+      "premisse": [
+        "D",
+        "E"
+      ],
+      "resultat": "G"
+    },
+    {
+      "ruleId": "R3",
+      "premisse": [
+        "B",
+        "C",
+        "D"
+      ],
+      "resultat": "H"
+    },
+    {
+      "ruleId": "R4",
+      "premisse": [
+        "A",
+        "D",
+        "E"
+      ],
+      "resultat": "I"
+    },
+    {
+      "ruleId": "R5",
+      "premisse": [
+        "B",
+        "E"
+      ],
+      "resultat": "J"
+    }
+  ]
+}
