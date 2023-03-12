@@ -43,9 +43,6 @@ public class Rule {
         this.premises = premises;
     }
 
-    public void setAntecedents(ArrayList<String> antecedents) {
-        this.premises = antecedents;
-    }
 
     public void setResult(ArrayList<String>  result) {
         this.result = result;

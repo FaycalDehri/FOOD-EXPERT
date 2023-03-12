@@ -4,26 +4,26 @@
 public class Fact {
 
     private String name;
-    private boolean value;
+    private int quantity;
 
-    public Fact(String name,boolean value){
+    public Fact(String name,int quantity){
         this.name = name;
-        this.value = value;
+        this.quantity = quantity;
     }
 
     public String getName() {
         return name;
     }
 
-    public boolean getValue(){
-        return value;
+    public int getquantity(){
+        return quantity;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setValue(boolean value) {
-        this.value = value;
+    public void setquantity(int quantity) {
+        this.quantity = quantity;
     }
 }
