@@ -12,8 +12,13 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import javax.swing.text.html.ImageView;
-import java.awt.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -44,7 +49,7 @@ public class ExpertSystemUI extends Application {
 
         root.getChildren().addAll(recipeLabel, closeButton);
 
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(root, 800, 900); // Set the width and height of the Scene to 600 and 400, respectively
         stage.setScene(scene);
         stage.show();
     }
@@ -83,7 +88,21 @@ public class ExpertSystemUI extends Application {
         nextButton.setOnAction(e -> {
             String selectedRecipe = recipeOptionsListView.getSelectionModel().getSelectedItem();
             if (selectedRecipe != null) {
-                showRecipeWindow("this is the recipe for"+selectedRecipe);
+
+                File file = new File("C:\\Users\\acer\\Desktop\\TP\\Technologie des Agents\\FOOD-EXPERT\\resources\\recepies\\"+ selectedRecipe + ".txt");
+                StringBuilder sb = new StringBuilder();
+                try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        sb.append(line).append("\n");
+                    }
+                } catch (IOException e1) {
+                    // Handle the exception here, e.g. show an error message
+                    e1.printStackTrace();
+                    return; // or throw a custom exception, or do something else
+                }
+                String recipeText = sb.toString();
+                showRecipeWindow(selectedRecipe.toUpperCase() +"\n \n"+ recipeText);
                 recipeOptionsStage.close();
             }
         });
@@ -95,43 +114,15 @@ public class ExpertSystemUI extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-//        Fact fact1 = new Fact("Huile", 5,false);
-//        Fact fact2 = new Fact("eggs", 2,false);
-//        Fact fact3 = new Fact("cheese", 3,false);
-//        Fact fact4 = new Fact("thon", 10,false);
-//        Fact fact5 = new Fact("mimosa", 1,true);
-//        Fact fact6= new Fact("mayonnaise", 1,false);
-//        Fact fact7= new Fact("potato", 1,false);
-//        Fact fact8= new Fact("frites", 1,true);
-//        Fact fact9= new Fact("frites omelette", 1,true);
-//        Fact fact10= new Fact("omelettes", 1,true);
-//        Fact fact11= new Fact("beurre", 1,false);
-//
-//
-//        // Creating the rules
-//        Rule rule1 = new Rule(new ArrayList<>(Arrays.asList(fact1, fact2)), new ArrayList<>(Collections.singletonList(fact6)));
-//        Rule rule2 = new Rule(new ArrayList<>(Arrays.asList(fact3)), new ArrayList<>(Collections.singletonList(fact5)));
-//        Rule rule3 = new Rule(new ArrayList<>(Arrays.asList(fact6, fact4)), new ArrayList<>(Collections.singletonList(fact5)));
-//        Rule rule4 = new Rule(new ArrayList<>(Arrays.asList(fact7, fact1)), new ArrayList<>(Collections.singletonList(fact8)));
-//        Rule rule5 = new Rule(new ArrayList<>(Arrays.asList(fact8, fact10)), new ArrayList<>(Collections.singletonList(fact9)));
-//        Rule rule6 = new Rule(new ArrayList<>(Arrays.asList(fact2, fact11)), new ArrayList<>(Collections.singletonList(fact10)));
-//
-//        // Adding the rules to the rule base
-//        ArrayList<Rule> ruleBase = new ArrayList<>();
-//        ruleBase.add(rule1);
-//        ruleBase.add(rule2);
-//        ruleBase.add(rule3);
-//        ruleBase.add(rule4);
-//        ruleBase.add(rule5);
-//        ruleBase.add(rule6);
 
-        RuleBase ruleBase = new RuleBase("C:\\Users\\Fayçal\\Desktop\\SII\\S2\\TECH_AGENTS\\TP\\food_expert\\src\\rule_base.txt");
+
+        RuleBase ruleBase = new RuleBase("C:\\Users\\acer\\Desktop\\TP\\Technologie des Agents\\FOOD-EXPERT\\resources\\recepies\\rule_base.txt");
         ArrayList<Rule> rules = ruleBase.getRules();
 
         primaryStage.setTitle("FOOD EXPERT!");
 
         // Create form components
-        Label welcomeLabel = new Label("Welcome to Food expert! \n Tell me what's inside that fridge");
+        Label welcomeLabel = new Label("Welcome to Food expert! \n Tell me what's inside your fridge");
         Label nameLabel = new Label("Ingredients:");
         TextField nameTextField = new TextField();
         Label quantityLabel = new Label("Quantity:");
@@ -175,26 +166,51 @@ public class ExpertSystemUI extends Application {
                 // Show dialog box with "Yes" and "No" buttons
                 ButtonType yesButton = new ButtonType("Yes, take me to the recipe", ButtonBar.ButtonData.OK_DONE);
                 ButtonType noButton = new ButtonType("Ok, I don't need to see the recipe", ButtonBar.ButtonData.CANCEL_CLOSE);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Yes you can make the recipe you imbecil", yesButton, noButton);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Yes you can make the recipe", yesButton, noButton);
                 alert.setHeaderText(null);
                 alert.showAndWait().ifPresent(response -> {
                     if (response == yesButton) {
                         // TODO: Open recipe page
                         // If you want to pass a text to the recipe page, you can do it like this:
-                        String recipeText = "This is the recipe for " + goal;
-                        showRecipeWindow(recipeText);
+
+//                        String filePath = "path/to/your/file.txt";
+//
+//                        try {
+//                            recipeText = new String(Files.readAllBytes(Paths.get(filePath)));
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+
+                         // Replace with the actual file name
+                        File file = new File("C:\\Users\\acer\\Desktop\\TP\\Technologie des Agents\\FOOD-EXPERT\\resources\\recepies\\"+ goal + ".txt");
+                        StringBuilder sb = new StringBuilder();
+                        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                sb.append(line).append("\n");
+                            }
+                        } catch (IOException e1) {
+                            // Handle the exception here, e.g. show an error message
+                            e1.printStackTrace();
+                            return; // or throw a custom exception, or do something else
+                        }
+                        String recipeText = sb.toString();
+
+                        //String recipeText = "This is the recipe for " + goal;
+                        showRecipeWindow(goal.toUpperCase()+ "\n \n" + recipeText);
                     }
                 });
             } else {
                 // Show dialog box with "See what else you can make" and "Ok, I will remain hungry" buttons
                 ButtonType seeButton = new ButtonType("See what else you can make", ButtonBar.ButtonData.OK_DONE);
-                ButtonType remainButton = new ButtonType("Ok, I will remain hungry", ButtonBar.ButtonData.CANCEL_CLOSE);
-                Alert alert = new Alert(Alert.AlertType.ERROR, "You can't make the recipe :(", seeButton, remainButton);
+                ButtonType remainButton = new ButtonType("Exit page", ButtonBar.ButtonData.CANCEL_CLOSE);
+                Alert alert = new Alert(Alert.AlertType.ERROR, "This recipe cannot be made with the available ingredients", seeButton, remainButton);
                 alert.setHeaderText(null);
                 alert.showAndWait().ifPresent(response -> {
                     if (response == seeButton) {
                         // TODO: Show recipe options page
                         // If you want to pass the recipe options to the page, you can do it like this:
+//                        possibleRecipes.get(0).getName()
                         showRecipeOptionsWindow(possibleRecipes);
                     }
                 });

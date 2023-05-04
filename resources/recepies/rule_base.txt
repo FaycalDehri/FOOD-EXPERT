@@ -1,0 +1,32 @@
+oil/0/false,eggs/1/false:mayonnaise/1/true
+mayonnaise/1/false,tuna/1/false:mimosa/1/true
+potatoes/4/false,oil/0/false:French fries/0/true
+butter/0/false/,eggs/1/false:omlette/1/true
+Omelette/0/true,potatoes/4/false:Frite Omlette/1/true
+eggs/3/false,oil/3/false,milk/500/false,sugar/2/false,vanilla/1/false,flour/250/false:Pancake/1/true
+meat/0/false,ail/0/false,ognion/1/false,huile/0/false,chapelure/0/false,cumin/0/false,beurre/0/false,oeuf/1/false,chickpeas/0/false:Mtouem/1/true
+pepper/2/false,tomatoes/2/false,onions/2/false,olive oil/0/false:Checkchouka/1/true
+couscous/1/false,oil/1/false:Steamed couscous/1/true
+peas/1/false,foul/1/false,olive oil/0/false:Steamed peas/100/true
+Steamed couscous/0/true,Steamed peas/0/true:Mesfouf/1/true
+Steamed couscous/0/true,zbib/0/false:Mesfouf with zbib/1/true
+rechta/1/false,chicken/1/false,chickpeas/1/false,turnip/1/false,olive oil/1/false:Rechta/1/true
+rechta/1/false,chicken/1/false,chickpeas/1/false,turnip/1/false,butter/1/false:Rechta/1/true
+cauliflower/1/false:Steamed cauliflower/1/true
+Steamed cauliflower/0/true,eggs/1/false,flour/100/false,milk/100/false,oil/100/false:Deep fried Cauliflower/1/true
+Deep fried Cauliflower/0/true,tomatoes/1/false,chickpeas/1/false,chicken/1/false:Tadjine Cauliflower/1/true
+chicken/100/false,oil/100/false,eggs/1/false,flour/100/false:Fried chicken/1/true
+butter/100/false,milk/100/false,flour/100/false:bechamel/1/false
+chicken/100/false,bechamel/0/false,cheese/1/false,pasta/100/false:White sauce chicken pasta/1/true
+Poulet pané/0/true,bechamel/0/false,cheese/0/false:breaded chicken gratin/1/true
+chicken/100/false,bechamel/0/false,fries/1/true,cheese/1/false,Steamed Cauliflower/0/true:Gratin au choux fleurs/1/true
+banana/1/false,milk/100/false:Banana Milkshake/1/true
+sugar/100/false,strawberries/1/false,peaches/1/false,apricots/1/false,banana/1/false:Fruit salad/1/true
+flour/300/false,butter/150/false,eggs/1/false,sugar/1/false:Pie crust/1/false
+eggs/4/false,milk/500/false,flour/70/false,sugar/3/false:Pastry cream/1/false
+Pastry cream/1/false,Pie crust/1/false,strawberries/1/false:Strawberry pie/1/true
+Pastry cream/1/false,Pie crust/1/false,mangoes/1/false:Mango pie/1/true
+Pastry cream/1/false,Pie crust/1/false,banana/1/false:Banana pie/1/true
+Pastry cream/1/false,Pie crust/1/false,cherries/1/false:Cherry pie/1/true
+Pastry cream/1/false,Pie crust/1/false,apple/1/false:Apple pie/1/true
+Pastry cream/1/false,Pie crust/1/false,peaches/1/false:Peaches pie/1/true
